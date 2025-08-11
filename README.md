@@ -12,9 +12,35 @@ Este repositorio contiene:
 ●       Pruebas básicas en test.py.
 
 **Arquitectura (alto nivel)**: 
-Cliente (Swagger, curl, Python, Postman) → 2. FastAPI (/predict) → 3. Pipeline de preprocesamiento → 4. Modelo (.pkl) → 5. Respuesta JSON.
+Cliente → 2. FastAPI (/predict) → 3. Pipeline de preprocesamiento → 4. Modelo (.pkl) → 5. Respuesta JSON.
 
+```mermaid
+flowchart TB
+  C[Cliente]
+  H[Internet HTTPS]
 
+  subgraph GCP[GCP - Proyecto]
+    subgraph CR[Cloud Run - Servicio]
+      subgraph DOCKER[Docker Container - Imagen]
+        F[FastAPI - endpoints / y /predict]
+        P[Pipeline de preprocesamiento]
+        M[Modelo ML - diabetes_model.pkl]
+      end
+    end
+    LOG[Cloud Logging]
+    MON[Cloud Monitoring]
+  end
+
+  %% Flujo
+  C --> H --> F
+  F --> P --> M --> P --> F
+  F -->|JSON 200| C
+
+  %% Observabilidad
+  F -.->|logs| LOG
+  CR -.->|metricas| MON
+
+```
 _______________________________________
 **2) Estructura del repositorio**
 
@@ -194,7 +220,4 @@ Se habilita el monitoreo con Cloud Monitoring para visualizar:
 ________________________________________
 **8) Créditos**
 **Autor/es:** Alex Medina, Bryan Meza, Alejandra Tobar, Pablo Villarroel  
-
- 
-
 
