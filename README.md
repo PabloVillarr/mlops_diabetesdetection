@@ -50,7 +50,7 @@ _______________________________________
 
 ├── requirements.txt  	# Dependencias de Python
 
-├── Dockerfile        	# Imagen para despliegue (Cloud Run)
+├── Dockerfile        	# Receta para la imagen que se construye con Cloud Build y se despliega en Cloud Run.
 
 ├── test.py           	# Pruebas básicas de API/modelo
 
@@ -60,7 +60,7 @@ _______________________________________
 
 ├── LICENSE           	# Licencia MIT
 
-└── README.md         	# Este documento
+└── README.md         	# Documentación del proyecto
  
 ________________________________________
 **3) Cómo ejecutar localmente**
