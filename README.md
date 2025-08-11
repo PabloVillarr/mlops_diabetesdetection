@@ -82,7 +82,7 @@ Visita: http://localhost:8000/docs.
 
 docker build -t diabetes-api:latest .
 
-docker run -p 8000:8080 diabetes-api:latest  # Si la app corre en 8080 dentro del contenedor
+docker run -p 8000:8080 diabetes-api:latest
 
 Abre http://localhost:8000/docs.
 
