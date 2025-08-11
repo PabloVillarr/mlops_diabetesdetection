@@ -86,8 +86,6 @@ docker run -p 8000:8080 diabetes-api:latest
 
 Abre http://localhost:8000/docs.
 
-Nota: Ajusta el puerto si tu app.py/Dockerfile usa otro (p.ej. PORT de entorno).
-
 ________________________________________
 **4) Uso de la API**
 
